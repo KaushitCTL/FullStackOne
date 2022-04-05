@@ -1,6 +1,6 @@
 <div>
     Username: <input type="text" name="username" [(ngModel)]="username">
     Password: <input type="password" name="password" [(ngModel)]="password"><br>
-    <small *ngIf="invalidLogin">{{errorMsg}}</small><br>
+    <small *ngIf="invalidUser">{{errorMsg}}<br></small>
     <button (click)="loginHandler()">Login</button>
 </div>

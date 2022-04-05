@@ -10,8 +10,8 @@ export class LoginComponent implements OnInit {
 
   username = "";
   password = "";
-  errorMsg = "Invalid Credentials";
-  invalidLogin = false;
+  errorMsg = "";
+  invalidUser = false;
 
   constructor(private router: Router) { }
 
@@ -23,11 +23,16 @@ export class LoginComponent implements OnInit {
     console.log(this.username);
 
     if(this.username === "Shubham" && this.password === "dummy"){
-      this.invalidLogin = false;
-      this.router.navigate(["welcome", this.username]);
+      this.invalidUser = false;    
+      this.router.navigate(["welcome", this.username, this.password]);
+    }
+    else if(this.username != "Shubham"){
+      this.invalidUser = true;
+      this.errorMsg = "Invalid Username";
     }
     else{
-      this.invalidLogin = true;
+      this.invalidUser = true;
+      this.errorMsg = "Invalid Password";
     }
 
   }
